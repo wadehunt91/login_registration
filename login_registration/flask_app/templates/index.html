@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Register and Login</title>
+</head>
+<body>
+    <div class="container d-flex justify-content-around">
+        <div class="p-3 mb-2 bg-dark text-white">
+            <h2>Register</h2>
+            <form action="/register" method="post">
+                <div>
+                    <label for="first_name">First Name</label>
+                </div>
+                <div>
+                    <input type="text" name="first_name" placeholder="First Name">
+                </div>
+                <div>
+                    <label for="last_name">Last Name</label>
+                </div>
+                <div>
+                    <input type="text" name="last_name" placeholder="Last Name">
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                </div>
+                <div>
+                    <input type="email" name="email" placeholder="your-email@email.com">
+                </div>
+                <div>
+                    <label for="password">Password</label>
+                </div>
+                <div>
+                    <input type="password" name="password" placeholder="Pasword">
+                </div>
+                <div>
+                    <label for="confirm_password">Confirm Password</label>
+                </div>
+                <div>
+                    <input type="password" name="confirm_password" placeholder="Confirm Password">
+                </div>
+                <div class="pt-3">
+                    <input type="submit" name="submit">
+                </div>
+            </form>
+        </div>
+        <div class="p-3 mb-2 bg-dark text-white">
+            <h2>Login</h2>
+            <form action="/login" method="post">
+                <div>
+                    <label for="email">Email</label>
+                </div>
+                <div>
+                    <input type="email" name="email" placeholder="your-email@email.com">
+                </div>
+                <div>
+                    <label for="password">Password</label>
+                </div>
+                <div>
+                    <input type="password" name="password" placeholder="Password">
+                </div>
+                <div class="pt-3">
+                    <input type="submit" name="login">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="d-flex flex-column justify-content-center">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{message}}</p>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+    </div>
+</body>
+</html>
